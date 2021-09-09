@@ -1,4 +1,4 @@
-package com.poc_builder;
+package com.builder;
 
 public enum Model {
     SUV,

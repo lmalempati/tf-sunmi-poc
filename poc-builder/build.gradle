@@ -8,7 +8,8 @@ java {
 }
 
 dependencies {
-    implementation files('D:\\Android\\poc-interface\\build\\libs\\poc-interface.jar')
+    implementation files('D:\\Android\\poc-builder\\libs\\poc-interface.jar')
 }
+
 
 
