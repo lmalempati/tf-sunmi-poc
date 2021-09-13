@@ -1,4 +1,4 @@
-package com.example.poc_interface;
+package lmn.learning;
 
 public interface Car{
     double setEngineCC();

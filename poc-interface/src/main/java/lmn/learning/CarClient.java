@@ -1,4 +1,4 @@
-package com.example.poc_interface;
+package lmn.learning;
 
 import static jdk.xml.internal.SecuritySupport.getClassLoader;
 
@@ -8,16 +8,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 
 public class CarClient {
-    private static final String PATH = "D:\\Android\\poc-builder\\build\\libs\\poc-builder.jar";
+//    private static final String PATH = "D:\\Android\\poc-builder\\build\\libs\\poc-builder.jar";
+    private static final String PATH = "D:\\Java\\POCBuilder\\out\\artifacts\\POCBuilder_jar\\POCBuilder.jar";
+
 //    private static final String PATH ="D:\\Working-SDG\\Java\\POCBuilder_IJ\\out\\artifacts\\Builder_jar\\Builder.jar";
 
-    private static final String CLASS = "com.builder.";
+    private static final String CLASS = "lmn.learning.";
     public static Car getCar(String name) throws MalformedURLException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         File jarFile = new File(PATH);
         URLClassLoader cl = new URLClassLoader(new URL[]{jarFile.toURI().toURL()});
@@ -31,6 +34,13 @@ public class CarClient {
         URLClassLoader cl = new URLClassLoader(new URL[]{jarFile.toURI().toURL()});
         Class carClass = Class.forName(CLASS + name, true, cl);
         return (Vehicle) carClass.getDeclaredConstructor().newInstance();
+    }
+    public static IGreet getGreet(String name) throws MalformedURLException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        File jarFile = new File(PATH);
+        URLClassLoader cl = new URLClassLoader(new URL[]{jarFile.toURI().toURL()});
+        Class carClass = cl.loadClass("lmn.learning." + name);
+//        Class carClass = Class.forName(CLASS + name, true, cl);
+        return (IGreet) carClass.getDeclaredConstructor().newInstance();
     }
 
     static Object LoadJar(String clsName) throws IOException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -76,7 +86,10 @@ public class CarClient {
 //            }
 //            else return;
             // get Vehicle objs
-            System.out.println(testCar());
+//            System.out.println(testCar());
+            IGreet greet = getGreet("GreetMe");
+            System.out.println(greet.Greet("Test Name"));
+
             Vehicle Sedan = getVehicle("Sedan");
             Sedan.start();
             Sedan.stop();

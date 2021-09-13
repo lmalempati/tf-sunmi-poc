@@ -1,9 +1,8 @@
 package com.builder;
 
-//import com.example.poc_interface.Car;
-import com.example.poc_interface.Car;
-import com.example.poc_interface.Engine;
-import com.example.poc_interface.Vehicle;
+import lmn.learning.Car;
+import lmn.learning.Engine;
+import lmn.learning.Vehicle;
 
 public class Sedan implements Vehicle, Car
 {
