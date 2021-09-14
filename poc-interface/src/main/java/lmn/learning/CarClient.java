@@ -15,9 +15,9 @@ import java.util.jar.JarFile;
 
 
 public class CarClient {
-//    private static final String PATH = "D:\\Java\\POCBuilder\\out\\artifacts\\POCBuilder_jar\\POCBuilder.jar";
+    private static final String PATH = "D:\\Java\\POCBuilder\\out\\artifacts\\POCBuilder_jar\\POCBuilder.jar";
 //private static final String PATH = "https://github.com/lmalempati/tf-sunmi-poc/blob/master/POCBuilder.jar";
-    private static final String PATH = "";
+//    private static final String PATH = "";
 
     private static final String CLASS = "lmn.learning.";
     public static Car getCar(String name) throws MalformedURLException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
