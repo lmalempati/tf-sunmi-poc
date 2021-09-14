@@ -15,10 +15,9 @@ import java.util.jar.JarFile;
 
 
 public class CarClient {
-//    private static final String PATH = "D:\\Android\\poc-builder\\build\\libs\\poc-builder.jar";
-    private static final String PATH = "D:\\Java\\POCBuilder\\out\\artifacts\\POCBuilder_jar\\POCBuilder.jar";
-
-//    private static final String PATH ="D:\\Working-SDG\\Java\\POCBuilder_IJ\\out\\artifacts\\Builder_jar\\Builder.jar";
+//    private static final String PATH = "D:\\Java\\POCBuilder\\out\\artifacts\\POCBuilder_jar\\POCBuilder.jar";
+//private static final String PATH = "https://github.com/lmalempati/tf-sunmi-poc/blob/master/POCBuilder.jar";
+    private static final String PATH = "";
 
     private static final String CLASS = "lmn.learning.";
     public static Car getCar(String name) throws MalformedURLException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
@@ -72,66 +71,58 @@ public class CarClient {
         return null;
     }
 
-//    public static void main(String[] args) throws NoSuchMethodException, IOException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
-//        //getCar("Sedan");
-////        LoadJar("Sedan");
-//    }
-    public static void main(String[] args) {
-
-        try {
-//            Vehicle Sedan = null;
-//            Object obj = LoadJar("Sedan");
-//            if ( obj != null){
-//                Sedan = (Vehicle) obj;
-//            }
-//            else return;
-            // get Vehicle objs
+    public static void main(String[] args) throws NoSuchMethodException, IOException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+        //getCar("Sedan");
+        //LoadJar("Sedan");
+        System.out.println(testCar());
+    }
+//    public static void main(String[] args) {
+//
+//        try {
+//            IGreet greet = getGreet("GreetMe");
+//            System.out.println(greet.Greet("Test Name"));
+//
+//            Vehicle Sedan = getVehicle("Sedan");
+//            Sedan.start();
+//            Sedan.stop();
+//
+//            Vehicle SUV = getVehicle("SUV");
+//            SUV.start();
+//            SUV.stop();
+//
+//            // get Vehicle objs
+//            Car cSUV = getCar("SUV");
+//            System.out.println(" SUV cc: " + cSUV.getEngineCC());
+//            Engine engine = new Engine(1299);
+//            engine.Standard = "BS5";
+//            cSUV.setEngine(engine);
+//
+//            Car cSedan = getCar("Sedan");
+//            System.out.println(" Sedan cc: " + cSedan.getEngineCC());
+//
+//            engine = new Engine(1199);
+//            engine.Standard = "BS6";
+//            cSedan.setEngine(engine);
+//
 //            System.out.println(testCar());
-            IGreet greet = getGreet("GreetMe");
-            System.out.println(greet.Greet("Test Name"));
-
-            Vehicle Sedan = getVehicle("Sedan");
-            Sedan.start();
-            Sedan.stop();
-
-            Vehicle SUV = getVehicle("SUV");
-            SUV.start();
-            SUV.stop();
-
-            // get Vehicle objs
-            Car cSUV = getCar("SUV");
-            System.out.println(" SUV cc: " + cSUV.getEngineCC());
-            Engine engine = new Engine(1299);
-            engine.Standard = "BS5";
-            cSUV.setEngine(engine);
-
-            Car cSedan = getCar("Sedan");
-            System.out.println(" Sedan cc: " + cSedan.getEngineCC());
-
-            engine = new Engine(1199);
-            engine.Standard = "BS6";
-            cSedan.setEngine(engine);
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-//    } catch (IOException e) {
+//
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (NoSuchMethodException e) {
+//            e.printStackTrace();
+//        } catch (InvocationTargetException e) {
+//            e.printStackTrace();
+//        } catch (InstantiationException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
 //            e.printStackTrace();
 //        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
     public static String testCar() {
         Vehicle Sedan = null;
         StringBuilder sb = new StringBuilder();
