@@ -1,5 +1,7 @@
 package com.poc;
 
+import com.google.gson.Gson;
+
 import lmn.learning.CarClient;
 // import com.example.poc_interface.CarClient;
 
@@ -11,6 +13,7 @@ public class TestCarFromAAR {
         System.out.println("args = ");
     }
     public static String Test() {
+
 
         CarClient client = new CarClient();
         return CarClient.testCar();

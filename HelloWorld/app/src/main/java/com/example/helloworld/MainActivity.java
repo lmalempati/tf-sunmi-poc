@@ -1,15 +1,25 @@
 package com.example.helloworld;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import lmn.learning.CarClient;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import fdrc.base.Request;
+import fdrc.base.Response;
+import fdrc.client.Client;
+import fdrc.utils.JsonBuilder;
+
+
+//import fdrc.client.Client;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        System.setProperty("java.awt.headless", "true");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -31,16 +43,74 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void sendMessage(){
-      //  Intent intent = new Intent(this, DisplayMessageActivity.class);
-
+    public void sendMessage() {
 //         comes from external library / jar
-        String msg = CarClient.testCar();
+//        String result = BookMain.JacksonSample();
+//        System.out.println(result);
 
-        Toast.makeText(MainActivity.this,msg, Toast.LENGTH_LONG).show();
+        Thread thread = new Thread(new Runnable() {
 
+            @Override
+            public void run() {
+                try {
+                    Client client = new Client();
+                    Request request = JsonBuilder.getRequestFromJsonString(getAssetJsonData(getApplicationContext()));
+                    Response response = client.processRequest(request);
+                    System.out.println();
+                    response = client.processRequest(request);
+                    System.out.println(response.respCode + response.errorMsg);
+                    response = client.processRequest(request);
+                    System.out.println(response.respCode + response.errorMsg);
+                    response = client.processRequest(request);
+                    System.out.println(response.respCode + response.errorMsg);
+                    Looper.prepare();
+                    Context context = getApplicationContext();
+                    CharSequence text = response.respCode + response.addtlRespData;
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
+//        BookMain.jaxbSample();
+//        BookMain.XmlEncoderSample();
+//        BookMain.Xstream();
+//        SimpleSerializer.toXml();
+
+
+//        Toast.makeText(MainActivity.this,msg, Toast.LENGTH_LONG).show();
 //        intent.putExtra(EXTRA_MESSAGE, message);
 //        intent.putExtra(msg, msg);
 //        startActivity(intent);
+    }
+
+    public static String getAssetJsonData(Context context) {
+        String json = null;
+        try {
+            InputStream is = null;
+            try {
+                is = context.getAssets().open("payload.json");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+
+        return json;
+
     }
 }
