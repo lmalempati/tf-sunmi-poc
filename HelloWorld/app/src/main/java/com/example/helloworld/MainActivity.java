@@ -1,6 +1,5 @@
 package com.example.helloworld;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Looper;
@@ -19,9 +18,6 @@ import fdrc.base.Response;
 import fdrc.client.Client;
 import fdrc.utils.JsonBuilder;
 
-
-//import fdrc.client.Client;
-
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.example.helloworld.MESSAGE";
@@ -30,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        System.setProperty("java.awt.headless", "true");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -45,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendMessage() {
-//         comes from external library / jar
-//        String result = BookMain.JacksonSample();
-//        System.out.println(result);
-
         Thread thread = new Thread(new Runnable() {
 
             @Override
@@ -93,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
             ex.printStackTrace();
             return null;
         }
-
         return json;
 
     }
