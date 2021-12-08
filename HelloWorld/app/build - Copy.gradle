@@ -1,0 +1,108 @@
+plugins {
+    id 'com.android.application'
+}
+
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.example.helloworld"
+        minSdk 22
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+//repositories {
+//    gradle { url 'https://jitpack.io' }
+//}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+//    implementation files('libs\\JaxbSample.jar')
+//    implementation files('libs\\SimpleXmlTest-1.0-SNAPSHOT.jar')
+    implementation 'androidx.multidex:multidex:2.0.1'
+//    implementation 'com.sun.xml.bind:jaxb:2.1.9'
+//    implementation 'com.ksc.mission.base:jaxb:1.2.6.6'
+//    implementation 'com.buschmais.jqassistant.plugin:xml:1.11.1'
+//    implementation files('libs\\activation.jar')
+//    implementation files('libs\\additionnal.jar')
+//    implementation files('libs\\ae-awt.jar')
+//    implementation files('libs\\ae-docx4j-2.8.0-SNAPSHOT.jar')
+//    implementation files('libs\\ae-jaxb-2.2.5.jar')
+//    implementation files('libs\\ae-xmlgraphics-commons.jar')
+//    implementation files('libs\\avalon-framework-api-4.3.1.jar')
+//    implementation files('libs\\avalon-framework-impl-4.3.1.jar')
+//    implementation files('libs\\commons-codec-1.3.jar')
+//    implementation files('libs\\commons-io-1.3.1.jar')
+//    implementation files('libs\\commons-lang-2.4.jar')
+//    implementation files('libs\\commons-logging-1.1.1.jar')
+//    implementation files('libs\\istack-commons-runtime.jar')
+//    implementation files('libs\\JAXBNamespacePrefixMapper-2.2.4.jar')
+//    implementation files('libs\\jaxp-datatype.jar')
+//    implementation files('libs\\log4j-1.2.15.jar')
+//    implementation files('libs\\serializer-2.7.1.jar')
+//    implementation files('libs\\stringtemplate-3.2.1.jar')
+//    implementation files('libs\\txw2-20110809.jar')
+//    implementation files('libs\\w3c-css.jar')
+//    implementation files('libs\\FDRCBuilder.jar')
+//    implementation files('libs\\Jaxbsample.jar')
+//    implementation files('libs\\FDRCBuilder.jar')
+    //    implementation files('libs\\Jaxbsample.jar')
+    //    implementation files('D:\\Android\\poc\\build\\outputs\\aar\\poc-debug.aar')
+//    implementation files('D:\\Android\\poc-interface\\build\\libs\\poc-interface.jar')
+//    implementation files('D:\\Android\\HelloWorld\\mylib\\build\\outputs\\aar\\mylib-debug.aar')
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.0'
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml
+//    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.0.0'
+//     https://mvnrepository.com/artifact/javax.xml.stream/stax-api
+//    implementation 'javax.xml.stream:stax-api:'
+    // https://mvnrepository.com/artifact/javax.xml.stream/stax-api
+//    implementation 'javax.xml.stream:stax-api:1.0-2'
+
+//    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+//    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+// https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream
+//    implementation 'com.thoughtworks.xstream:xstream:1.4.2'
+
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.1.1'
+    implementation 'com.fasterxml:aalto-xml:1.0.0'
+
+    // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+//    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+//    implementation group: 'javax.xml.bind', name: 'activation', version: '1.0.2'
+//    implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.0'
+//    implementation group: 'javax.xml.bind', name: 'jaxb-impl', version: '2.0.2'
+//    implementation 'javax.xml.bind:jaxb-api:2.2.4'
+//    implementation group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.0'
+//    implementation group: 'javax.xml', name: 'jaxb-impl', version: '2.1'
+
+//      implementation 'com.github.ndpgroup:jaxb-android:0.2.0'
+    // https://mvnrepository.com/artifact/com.leansoft/nano
+//    implementation group: 'com.leansoft', name: 'nano', version: '0.7.0'
+
+
+
+
+
+}

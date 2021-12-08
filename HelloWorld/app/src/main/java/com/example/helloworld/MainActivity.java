@@ -4,6 +4,7 @@ package com.example.helloworld;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -55,40 +56,23 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     Client client = new Client();
                     Request request = JsonBuilder.getRequestFromJsonString(getAssetJsonData(getApplicationContext()));
-                    Response response = client.processRequest(request);
-                    System.out.println();
-                    response = client.processRequest(request);
-                    System.out.println(response.respCode + response.errorMsg);
-                    response = client.processRequest(request);
-                    System.out.println(response.respCode + response.errorMsg);
-                    response = client.processRequest(request);
-                    System.out.println(response.respCode + response.errorMsg);
-                    Looper.prepare();
-                    Context context = getApplicationContext();
-                    CharSequence text = response.respCode + response.addtlRespData;
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-
-
+                    Response response = client.submitRequest(request);
+                    LogMessage(response);
+                    response = client.submitRequest(request);
+                    LogMessage(response);
+                    response = client.submitRequest(request);
+                    LogMessage(response);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+
+            private void LogMessage(Response response) {
+                Log.i("Response", response.respCode + "\n" + response.addtlRespData + "\n" + response.refNum);
+            }
         });
 
         thread.start();
-//        BookMain.jaxbSample();
-//        BookMain.XmlEncoderSample();
-//        BookMain.Xstream();
-//        SimpleSerializer.toXml();
-
-
-//        Toast.makeText(MainActivity.this,msg, Toast.LENGTH_LONG).show();
-//        intent.putExtra(EXTRA_MESSAGE, message);
-//        intent.putExtra(msg, msg);
-//        startActivity(intent);
     }
 
     public static String getAssetJsonData(Context context) {
@@ -113,4 +97,5 @@ public class MainActivity extends AppCompatActivity {
         return json;
 
     }
+
 }
