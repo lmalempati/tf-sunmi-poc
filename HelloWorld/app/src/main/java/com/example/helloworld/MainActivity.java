@@ -2,21 +2,20 @@ package com.example.helloworld;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-import fdrc.base.Request;
-import fdrc.base.Response;
-import fdrc.client.Client;
+import fdrc.model.RCRequest;
+import fdrc.model.RCResponse;
+import fdrc.service.Client;
 import fdrc.utils.JsonBuilder;
+import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -46,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 try {
                     Client client = new Client();
-                    Request request = JsonBuilder.getRequestFromJsonString(getAssetJsonData(getApplicationContext()));
-                    Response response = client.submitRequest(request);
+                    RCRequest request = JsonBuilder.getRequestFromJsonString(getAssetJsonData(getApplicationContext()));
+                    RCResponse response = client.submitRequest(request);
                     LogMessage(response);
                     response = client.submitRequest(request);
                     LogMessage(response);
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            private void LogMessage(Response response) {
+            private void LogMessage(RCResponse response) {
                 Log.i("Response", response.respCode + "\n" + response.addtlRespData + "\n" + response.refNum);
             }
         });
@@ -85,7 +83,5 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
         return json;
-
     }
-
 }
